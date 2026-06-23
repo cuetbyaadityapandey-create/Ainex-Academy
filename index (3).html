@@ -1,0 +1,3050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>AINEX Computer Academy</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<meta name="theme-color" content="#001b5e">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+:root{
+--blue:#001b5e;
+--gold:#ffc107;
+--light:#f4f6fb;
+}
+
+body{
+background:var(--light);
+overflow-x:hidden;
+padding-bottom:90px;
+}
+
+.topbar{
+background:var(--blue);
+color:#fff;
+padding:8px;
+text-align:center;
+font-size:12px;
+font-weight:700;
+}
+
+.header{
+background:#fff;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:var(--blue);
+}
+
+.logo span{
+color:var(--gold);
+}
+
+.menu-btn{
+font-size:26px;
+cursor:pointer;
+color:var(--blue);
+}
+
+#sidebar{
+position:fixed;
+left:-280px;
+top:0;
+width:260px;
+height:100%;
+background:var(--blue);
+overflow:auto;
+transition:.3s;
+z-index:99999;
+}
+
+#sidebar.active{
+left:0;
+}
+
+.sidebar-header{
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+font-size:20px;
+font-weight:700;
+}
+
+.sidebar-header span{
+font-size:30px;
+cursor:pointer;
+}
+
+#sidebar a{
+display:block;
+padding:14px;
+color:#fff;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.section{
+display:none;
+padding:15px;
+}
+
+.section.active{
+display:block;
+}
+
+.hero{
+background:linear-gradient(135deg,#001b5e,#0047b3);
+padding:25px;
+border-radius:20px;
+color:#fff;
+}
+
+.hero h1{
+font-size:34px;
+line-height:1.2;
+}
+
+.hero span{
+color:var(--gold);
+}
+
+.hero p{
+margin-top:10px;
+font-size:14px;
+}
+
+.btn-row{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.btn{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+}
+
+.btn-yellow{
+background:var(--gold);
+}
+
+.btn-white{
+background:#fff;
+}
+
+.stats{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:20px;
+}
+
+.stat{
+background:rgba(255,255,255,.15);
+padding:12px;
+border-radius:10px;
+text-align:center;
+}
+
+.notice{
+background:#fff3cd;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+text-align:center;
+font-size:12px;
+font-weight:700;
+}
+
+.title{
+text-align:center;
+font-size:26px;
+font-weight:700;
+color:var(--blue);
+margin:20px 0;
+}
+
+.course-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.course-card{
+background:#fff;
+padding:15px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.course-card i{
+font-size:30px;
+margin-bottom:10px;
+color:var(--blue);
+}
+
+.course-card h3{
+font-size:14px;
+margin-bottom:5px;
+}
+
+.course-card p{
+font-size:12px;
+color:#666;
+}
+
+.enroll-btn{
+width:100%;
+padding:10px;
+background:var(--blue);
+color:#fff;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+margin-top:10px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:var(--blue);
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+z-index:9999;
+}
+
+.bottom-nav a{
+flex:1;
+text-align:center;
+color:#fff;
+text-decoration:none;
+font-size:10px;
+}
+
+.bottom-nav i{
+display:block;
+font-size:18px;
+margin-bottom:4px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+🎓 Admission Open 2026 | AINEX Computer Academy
+</div>
+
+<div class="header">
+
+<div class="logo">
+AIN<span>EX</span>
+</div>
+
+<div class="menu-btn" onclick="openMenu()">
+<i class="fas fa-bars"></i>
+</div>
+
+</div>
+
+<div id="sidebar">
+
+<div class="sidebar-header">
+MENU
+<span onclick="closeMenu()">×</span>
+</div>
+
+<a href="#" onclick="showPage('home')">🏠 Home</a>
+<a href="#" onclick="showPage('about')">ℹ About Us</a>
+<a href="#" onclick="showPage('courses')">📚 Courses</a>
+<a href="#" onclick="showPage('admission')">📝 Admission</a>
+<a href="#" onclick="showPage('contact')">📞 Contact</a>
+
+</div>
+
+<section id="home" class="section active">
+
+<div class="hero">
+
+<h1>
+AINEX <span>COMPUTER</span><br>
+ACADEMY
+</h1>
+
+<p>
+Learn • Practice • Succeed
+</p>
+
+<div class="btn-row">
+
+<button class="btn btn-yellow"
+onclick="showPage('admission')">
+Apply Now
+</button>
+
+<button class="btn btn-white"
+onclick="showPage('courses')">
+Courses
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>100+</h3>
+Students
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+Courses
+</div>
+
+<div class="stat">
+<h3>95%</h3>
+Success
+</div>
+
+<div class="stat">
+<h3>5+</h3>
+Years
+</div>
+
+</div>
+
+</div>
+
+<div class="notice" id="notice">
+CCC Admission Open
+</div>
+
+<div class="title">
+Popular Courses
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+<i class="fas fa-desktop"></i>
+<h3>CCC</h3>
+</div>
+
+<div class="course-card">
+<i class="fas fa-laptop"></i>
+<h3>DCA</h3>
+</div>
+
+<div class="course-card">
+<i class="fas fa-user-graduate"></i>
+<h3>ADCA</h3>
+</div>
+
+<div class="course-card">
+<i class="fas fa-file-excel"></i>
+<h3>Advanced Excel</h3>
+</div>
+
+<div class="course-card">
+<i class="fas fa-calculator"></i>
+<h3>Tally Prime GST</h3>
+</div>
+
+<div class="course-card">
+<i class="fas fa-keyboard"></i>
+<h3>Typing</h3>
+</div>
+
+</div>
+
+</section>
+<section id="about" class="section">
+
+<div class="title">
+About Us
+</div>
+
+<div class="course-card">
+
+<h2 style="color:#001b5e;">
+AINEX COMPUTER ACADEMY
+</h2>
+
+<br>
+
+<p style="
+line-height:1.8;
+text-align:justify;
+font-size:14px;
+">
+
+AINEX Computer Academy is a professional computer education institute dedicated to providing quality technical education, practical training and career-oriented skills.
+
+Our mission is to make every student digitally skilled and career-ready through affordable computer education, practical learning and modern technology.
+
+We provide CCC, DCA, ADCA, Tally Prime + GST, Advanced Excel, Hindi Typing, English Typing, Web Designing, O Level, PGDCA, CPCT and many more professional courses.
+
+</p>
+
+<br>
+
+<div style="
+background:#001b5e;
+color:white;
+padding:15px;
+border-radius:12px;
+">
+
+✅ Practical Training<br><br>
+✅ Expert Faculty<br><br>
+✅ Online & Offline Classes<br><br>
+✅ Certificate Courses<br><br>
+✅ Placement Assistance<br><br>
+✅ Affordable Fees Structure
+
+</div>
+
+</div>
+
+</section>
+
+<section id="courses" class="section">
+
+<div class="title">
+Our Courses
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+<i class="fas fa-desktop"></i>
+<h3>CCC</h3>
+<p>1 Month</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('CCC')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-computer"></i>
+<h3>Basic Computer</h3>
+<p>1 Month</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('Basic Computer')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-laptop"></i>
+<h3>DCA</h3>
+<p>4 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('DCA')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-user-graduate"></i>
+<h3>ADCA</h3>
+<p>6 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('ADCA')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-calculator"></i>
+<h3>Tally Prime GST</h3>
+<p>2 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('Tally Prime GST')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-file-excel"></i>
+<h3>Advanced Excel</h3>
+<p>1 Month</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('Advanced Excel')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-language"></i>
+<h3>Hindi Typing</h3>
+<p>2 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('Hindi Typing')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-keyboard"></i>
+<h3>English Typing</h3>
+<p>2 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('English Typing')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-globe"></i>
+<h3>Web Designing</h3>
+<p>3 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('Web Designing')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-certificate"></i>
+<h3>O Level</h3>
+<p>12 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('O Level')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-chart-line"></i>
+<h3>PGDCA</h3>
+<p>12 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('PGDCA')">
+Enroll Now
+</button>
+</div>
+
+<div class="course-card">
+<i class="fas fa-laptop-code"></i>
+<h3>CPCT</h3>
+<p>3 Months</p>
+<button class="enroll-btn"
+onclick="openEnrollForm('CPCT')">
+Enroll Now
+</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="admission" class="section">
+
+<div class="title">
+Online Admission
+</div>
+
+<div class="course-card">
+
+<h3 style="color:#001b5e;">
+Admission Open 2026
+</h3>
+
+<br>
+
+<p>
+Join AINEX Computer Academy and start your professional learning journey today.
+</p>
+
+<br>
+
+<button class="enroll-btn"
+onclick="openEnrollForm('Admission Form')">
+Apply For Admission
+</button>
+
+</div>
+
+</section>
+
+<div id="enrollPopup"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+padding:15px;
+z-index:99999;
+">
+
+<div style="
+background:#fff;
+width:100%;
+max-width:420px;
+border-radius:15px;
+overflow:hidden;
+">
+
+<div style="
+background:#001b5e;
+color:#fff;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<b>Student Enrollment Form</b>
+
+<span
+onclick="closeEnrollForm()"
+style="
+font-size:28px;
+cursor:pointer;
+">
+×
+</span>
+
+</div>
+
+<form id="enrollForm"
+style="padding:15px;">
+
+<input type="hidden"
+name="access_key"
+value="fe1aeb51-d36c-4a1a-a460-b5fd8983077f">
+
+<input type="hidden"
+name="subject"
+value="AINEX Admission Form">
+
+<input
+type="text"
+name="Student Name"
+placeholder="Student Name"
+required
+style="width:100%;padding:12px;margin-bottom:10px;">
+
+<input
+type="text"
+name="Father Name"
+placeholder="Father Name"
+required
+style="width:100%;padding:12px;margin-bottom:10px;">
+
+<input
+type="tel"
+name="Mobile Number"
+placeholder="Mobile Number"
+required
+style="width:100%;padding:12px;margin-bottom:10px;">
+
+<input
+type="email"
+name="Email"
+placeholder="Email Address"
+style="width:100%;padding:12px;margin-bottom:10px;">
+
+<textarea
+name="Address"
+placeholder="Full Address"
+style="width:100%;height:90px;padding:12px;margin-bottom:10px;"></textarea>
+
+<input
+type="text"
+id="selectedCourse"
+name="Course"
+readonly
+style="width:100%;padding:12px;background:#f5f5f5;margin-bottom:10px;">
+
+<button
+type="submit"
+class="enroll-btn">
+Submit Enrollment
+</button>
+
+<div id="msg"
+style="
+margin-top:10px;
+text-align:center;
+font-weight:700;">
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- PART 2 END -->
+<section id="test" class="section">
+
+<div class="title">
+Online Test
+</div>
+
+<div class="course-card">
+
+<h3>CCC Online Test</h3>
+
+<p>
+50 Questions • 60 Minutes
+</p>
+
+<button class="enroll-btn">
+Start Test
+</button>
+
+</div>
+
+<div class="course-card">
+
+<h3>DCA Online Test</h3>
+
+<p>
+50 Questions • 60 Minutes
+</p>
+
+<button class="enroll-btn">
+Start Test
+</button>
+
+</div>
+
+<div class="course-card">
+
+<h3>ADCA Online Test</h3>
+
+<p>
+100 Questions • 120 Minutes
+</p>
+
+<button class="enroll-btn">
+Start Test
+</button>
+
+</div>
+
+</section>
+
+<section id="results" class="section">
+
+<div class="title">
+Result Verification
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Enter Roll Number"
+style="
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:10px;
+">
+
+<button class="enroll-btn">
+Check Result
+</button>
+
+</div>
+
+</section>
+
+<section id="gallery" class="section">
+
+<div class="title">
+Gallery
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+📸 Classroom
+</div>
+
+<div class="course-card">
+💻 Computer Lab
+</div>
+
+<div class="course-card">
+🎓 Students
+</div>
+
+<div class="course-card">
+🏆 Certificates
+</div>
+
+<div class="course-card">
+📚 Training Session
+</div>
+
+<div class="course-card">
+🖥 Practical Class
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="section">
+
+<div class="title">
+Contact Us
+</div>
+
+<div class="course-card">
+
+<h3>
+AINEX COMPUTER ACADEMY
+</h3>
+
+<br>
+
+<p>
+📞 Mobile : 9236414171
+</p>
+
+<br>
+
+<p>
+📧 Email : info@ainexacademy.com
+</p>
+
+<br>
+
+<p>
+📍 Address : Basti, Uttar Pradesh
+</p>
+
+<br>
+
+<p>
+🌐 Website : www.ainex.online
+</p>
+
+</div>
+
+</section>
+
+<script>
+
+function openMenu(){
+
+document.getElementById("sidebar")
+.classList.add("active");
+
+}
+
+function closeMenu(){
+
+document.getElementById("sidebar")
+.classList.remove("active");
+
+}
+
+function showPage(id){
+
+document.querySelectorAll(".section")
+.forEach(function(sec){
+
+sec.classList.remove("active");
+
+});
+
+document.getElementById(id)
+.classList.add("active");
+
+closeMenu();
+
+window.scrollTo(0,0);
+
+}
+
+function openEnrollForm(course){
+
+document.getElementById("enrollPopup")
+.style.display="flex";
+
+document.getElementById("selectedCourse")
+.value=course;
+
+}
+
+function closeEnrollForm(){
+
+document.getElementById("enrollPopup")
+.style.display="none";
+
+}
+
+document.getElementById("enrollForm")
+.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+let formData=
+new FormData(this);
+
+let response=
+await fetch(
+"https://api.web3forms.com/submit",
+{
+method:"POST",
+body:formData
+}
+);
+
+let result=
+await response.json();
+
+if(result.success){
+
+document.getElementById("msg")
+.innerHTML=
+"✅ Admission Submitted Successfully";
+
+this.reset();
+
+}else{
+
+document.getElementById("msg")
+.innerHTML=
+"❌ Submission Failed";
+
+}
+
+}
+);
+
+</script>
+
+<!-- FINAL VERSION PART 3 END -->
+ <section id="certificate" class="section">
+
+<div class="title">
+Certificate Verification
+</div>
+
+<div class="course-card">
+
+<h3>
+Verify Certificate
+</h3>
+
+<br>
+
+<input
+type="text"
+id="certificateNo"
+placeholder="Enter Certificate Number"
+style="
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:10px;
+">
+
+<button
+class="enroll-btn"
+onclick="verifyCertificate()">
+Verify Certificate
+</button>
+
+<div id="certificateResult"
+style="
+margin-top:15px;
+font-weight:700;
+text-align:center;
+">
+</div>
+
+</div>
+
+</section>
+
+<section id="downloads" class="section">
+
+<div class="title">
+Downloads
+</div>
+
+<div class="course-card">
+<h3>CCC Syllabus PDF</h3>
+<button class="enroll-btn">Download</button>
+</div>
+
+<div class="course-card">
+<h3>DCA Syllabus PDF</h3>
+<button class="enroll-btn">Download</button>
+</div>
+
+<div class="course-card">
+<h3>ADCA Syllabus PDF</h3>
+<button class="enroll-btn">Download</button>
+</div>
+
+<div class="course-card">
+<h3>Admission Form PDF</h3>
+<button class="enroll-btn">Download</button>
+</div>
+
+</section>
+
+<section id="services" class="section">
+
+<div class="title">
+Other Services
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+🖨 Online Forms
+</div>
+
+<div class="course-card">
+📄 Resume Making
+</div>
+
+<div class="course-card">
+🆔 ID Card Print
+</div>
+
+<div class="course-card">
+📸 Passport Photo
+</div>
+
+<div class="course-card">
+🌐 Website Design
+</div>
+
+<div class="course-card">
+📢 Digital Marketing
+</div>
+
+<div class="course-card">
+🤖 AI Solutions
+</div>
+
+<div class="course-card">
+💼 Job Assistance
+</div>
+
+<div class="course-card">
+🏠 Property Solutions
+</div>
+
+<div class="course-card">
+🛡 Insurance Services
+</div>
+
+</div>
+
+</section>
+
+<section id="faq" class="section">
+
+<div class="title">
+Frequently Asked Questions
+</div>
+
+<div class="course-card">
+<h3>Admission Kaise Le?</h3>
+<p>Online Admission Form Fill Karke Join Kar Sakte Hain.</p>
+</div>
+
+<div class="course-card">
+<h3>Certificate Milega?</h3>
+<p>Haan, Course Complete Hone Par Certificate Diya Jayega.</p>
+</div>
+
+<div class="course-card">
+<h3>Placement Assistance Hai?</h3>
+<p>Haan, Eligible Students Ko Placement Assistance Di Jayegi.</p>
+</div>
+
+<div class="course-card">
+<h3>Online Classes Available?</h3>
+<p>Haan, Online Aur Offline Dono Available Hain.</p>
+</div>
+
+</section>
+
+<section id="founder" class="section">
+
+<div class="title">
+Founder Message
+</div>
+
+<div class="course-card">
+
+<h2 style="color:#001b5e;">
+Aaditya Pandey
+</h2>
+
+<p>
+Founder & CEO
+</p>
+
+<br>
+
+<p style="
+text-align:justify;
+line-height:1.8;
+">
+
+Welcome to AINEX Computer Academy.
+
+Our mission is to provide affordable, practical and quality computer education to every student. We believe digital skills are the key to future success and employment.
+
+AINEX Computer Academy is committed to helping students achieve their career goals through quality education, practical training and modern technology.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="achievements" class="section">
+
+<div class="title">
+Achievements
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+🏆
+<h3>100+</h3>
+Students
+</div>
+
+<div class="course-card">
+🎓
+<h3>20+</h3>
+Courses
+</div>
+
+<div class="course-card">
+💼
+<h3>50+</h3>
+Placements
+</div>
+
+<div class="course-card">
+⭐
+<h3>95%</h3>
+Success Rate
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+function verifyCertificate(){
+
+let cert =
+document.getElementById("certificateNo").value;
+
+if(cert==="AINEX001"){
+
+document.getElementById("certificateResult")
+.innerHTML="✅ Valid Certificate Found";
+
+document.getElementById("certificateResult")
+.style.color="green";
+
+}else{
+
+document.getElementById("certificateResult")
+.innerHTML="❌ Certificate Not Found";
+
+document.getElementById("certificateResult")
+.style.color="red";
+
+}
+
+}
+
+</script>
+
+<!-- FINAL VERSION PART 4 END --><section id="reviews" class="section">
+
+<div class="title">
+Student Reviews
+</div>
+
+<div class="course-card">
+
+⭐⭐⭐⭐⭐
+
+<h3>Rahul Kumar</h3>
+
+<p>
+Best Institute For CCC & DCA Training.
+</p>
+
+</div>
+
+<div class="course-card">
+
+⭐⭐⭐⭐⭐
+
+<h3>Pooja Singh</h3>
+
+<p>
+Excellent Faculty And Practical Classes.
+</p>
+
+</div>
+
+<div class="course-card">
+
+⭐⭐⭐⭐⭐
+
+<h3>Amit Verma</h3>
+
+<p>
+Affordable Fees And Good Learning Environment.
+</p>
+
+</div>
+
+</section>
+
+<section id="toppers" class="section">
+
+<div class="title">
+Top Students
+</div>
+
+<div class="course-card">
+
+🥇 Rahul Kumar
+
+<br><br>
+
+CCC - 95%
+
+</div>
+
+<div class="course-card">
+
+🥈 Pooja Singh
+
+<br><br>
+
+DCA - 93%
+
+</div>
+
+<div class="course-card">
+
+🥉 Amit Verma
+
+<br><br>
+
+ADCA - 91%
+
+</div>
+
+</section>
+
+<section id="noticeboard" class="section">
+
+<div class="title">
+Latest Notices
+</div>
+
+<div class="course-card">
+
+<marquee
+direction="up"
+height="220">
+
+🎓 Admission Open 2026
+
+<br><br>
+
+📚 CCC New Batch Started
+
+<br><br>
+
+💻 DCA Registration Open
+
+<br><br>
+
+🏆 ADCA Admission Open
+
+<br><br>
+
+📊 Advanced Excel New Batch
+
+<br><br>
+
+⌨ Hindi & English Typing Classes
+
+<br><br>
+
+🌐 Web Designing Course Started
+
+<br><br>
+
+🤖 AI Tools Workshop Coming Soon
+
+</marquee>
+
+</div>
+
+</section>
+
+<section id="career" class="section">
+
+<div class="title">
+Career Opportunities
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+💻
+<h3>Computer Operator</h3>
+</div>
+
+<div class="course-card">
+📊
+<h3>Data Entry Operator</h3>
+</div>
+
+<div class="course-card">
+🧾
+<h3>Accountant</h3>
+</div>
+
+<div class="course-card">
+🌐
+<h3>Web Designer</h3>
+</div>
+
+<div class="course-card">
+⌨
+<h3>Typist</h3>
+</div>
+
+<div class="course-card">
+📢
+<h3>Digital Marketer</h3>
+</div>
+
+</div>
+
+</section>
+
+<section id="facilities" class="section">
+
+<div class="title">
+Institute Facilities
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+🖥 Computer Lab
+</div>
+
+<div class="course-card">
+📶 Free Internet
+</div>
+
+<div class="course-card">
+📚 Study Material
+</div>
+
+<div class="course-card">
+🎓 Certificate
+</div>
+
+<div class="course-card">
+👨‍🏫 Expert Faculty
+</div>
+
+<div class="course-card">
+💼 Placement Assistance
+</div>
+
+<div class="course-card">
+🧑‍💻 Practical Training
+</div>
+
+<div class="course-card">
+📱 Online Classes
+</div>
+
+</div>
+
+</section>
+
+<section id="counter" class="section">
+
+<div class="title">
+AINEX Statistics
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+👨‍🎓
+<h2>100+</h2>
+Students
+</div>
+
+<div class="course-card">
+📚
+<h2>20+</h2>
+Courses
+</div>
+
+<div class="course-card">
+🏆
+<h2>95%</h2>
+Success Rate
+</div>
+
+<div class="course-card">
+💼
+<h2>50+</h2>
+Placements
+</div>
+
+</div>
+
+</section>
+
+<section id="topcourses" class="section">
+
+<div class="title">
+Top Courses
+</div>
+
+<div class="course-card">
+🥇 CCC
+</div>
+
+<div class="course-card">
+🥈 DCA
+</div>
+
+<div class="course-card">
+🥉 ADCA
+</div>
+
+<div class="course-card">
+🏆 Tally Prime GST
+</div>
+
+<div class="course-card">
+📊 Advanced Excel
+</div>
+
+</section>
+
+<!-- FINAL VERSION PART 5 END -->
+<section id="social" class="section">
+
+<div class="title">
+Follow Us
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+📘
+<h3>Facebook</h3>
+<p>AINEX Official</p>
+</div>
+
+<div class="course-card">
+📸
+<h3>Instagram</h3>
+<p>@ainex.online</p>
+</div>
+
+<div class="course-card">
+▶️
+<h3>YouTube</h3>
+<p>AINEX Academy</p>
+</div>
+
+<div class="course-card">
+📢
+<h3>Telegram</h3>
+<p>AINEX Channel</p>
+</div>
+
+<div class="course-card">
+💬
+<h3>WhatsApp</h3>
+<p>Student Support</p>
+</div>
+
+<div class="course-card">
+💼
+<h3>LinkedIn</h3>
+<p>AINEX Digital</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="studentzone" class="section">
+
+<div class="title">
+Student Zone
+</div>
+
+<div class="course-card">
+
+<button class="enroll-btn">
+🎓 Student Login
+</button>
+
+<br><br>
+
+<button class="enroll-btn">
+🆔 Download ID Card
+</button>
+
+<br><br>
+
+<button class="enroll-btn">
+📄 Download Certificate
+</button>
+
+<br><br>
+
+<button class="enroll-btn">
+📅 Check Attendance
+</button>
+
+<br><br>
+
+<button class="enroll-btn">
+🏆 Check Result
+</button>
+
+</div>
+
+</section>
+
+<section id="share" class="section">
+
+<div class="title">
+Share Website
+</div>
+
+<div class="course-card">
+
+<button
+class="enroll-btn"
+onclick="shareWebsite()">
+
+📤 Share AINEX Website
+
+</button>
+
+</div>
+
+</section>
+
+<section id="installapp" class="section">
+
+<div class="title">
+Install App
+</div>
+
+<div class="course-card">
+
+<h3>
+AINEX Mobile App
+</h3>
+
+<br>
+
+<p>
+Install this website on your mobile home screen.
+</p>
+
+<br>
+
+<button
+id="installBtn"
+class="enroll-btn">
+
+📲 Install App
+
+</button>
+
+</div>
+
+</section>
+
+<a href="tel:9236414171"
+style="
+position:fixed;
+left:15px;
+bottom:90px;
+width:55px;
+height:55px;
+background:#001b5e;
+color:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+text-decoration:none;
+z-index:9999;
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+">
+
+<i class="fas fa-phone"></i>
+
+</a>
+
+<a href="https://wa.me/919236414171"
+target="_blank"
+style="
+position:fixed;
+right:15px;
+bottom:90px;
+width:55px;
+height:55px;
+background:#25D366;
+color:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+text-decoration:none;
+z-index:9999;
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+">
+
+<i class="fab fa-whatsapp"></i>
+
+</a>
+
+<footer style="
+background:#001b5e;
+color:white;
+padding:25px;
+text-align:center;
+margin-top:20px;
+">
+
+<h2>
+AINEX COMPUTER ACADEMY
+</h2>
+
+<br>
+
+<p>
+CCC | DCA | ADCA | Tally Prime GST
+</p>
+
+<br>
+
+<p>
+📞 9236414171
+</p>
+
+<p>
+📧 info@ainexacademy.com
+</p>
+
+<p>
+📍 Basti, Uttar Pradesh
+</p>
+
+<br>
+
+<p>
+© 2026 AINEX Computer Academy
+</p>
+
+</footer>
+
+<div class="bottom-nav">
+
+<a href="#"
+onclick="showPage('home')">
+<i class="fas fa-home"></i>
+Home
+</a>
+
+<a href="#"
+onclick="showPage('courses')">
+<i class="fas fa-book"></i>
+Courses
+</a>
+
+<a href="#"
+onclick="showPage('admission')">
+<i class="fas fa-user-plus"></i>
+Admission
+</a>
+
+<a href="#"
+onclick="showPage('contact')">
+<i class="fas fa-phone"></i>
+Contact
+</a>
+
+</div>
+
+<script>
+
+function shareWebsite(){
+
+if(navigator.share){
+
+navigator.share({
+title:"AINEX Computer Academy",
+text:"Join AINEX Computer Academy",
+url:window.location.href
+});
+
+}else{
+
+alert("Share Not Supported");
+
+}
+
+}
+
+let deferredPrompt;
+
+window.addEventListener(
+"beforeinstallprompt",
+(e)=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+const installBtn=
+document.getElementById("installBtn");
+
+if(installBtn){
+
+installBtn.addEventListener(
+"click",
+async()=>{
+
+deferredPrompt.prompt();
+
+await deferredPrompt.userChoice;
+
+});
+
+}
+
+});
+
+</script>
+
+<!-- FINAL VERSION PART 6 END --><section id="franchise" class="section">
+
+<div class="title">
+AINEX Franchise
+</div>
+
+<div class="course-card">
+
+<h3>
+Open Your Own AINEX Center
+</h3>
+
+<br>
+
+<p>
+Start Your Computer Institute With AINEX Support.
+</p>
+
+<br>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('AINEX Franchise')">
+Apply For Franchise
+</button>
+
+</div>
+
+</section>
+
+<section id="jobs" class="section">
+
+<div class="title">
+Job Portal
+</div>
+
+<div class="course-card">
+
+<h3>
+Computer Operator
+</h3>
+
+<p>
+Required Computer Knowledge
+</p>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('Computer Operator Job')">
+Apply Job
+</button>
+
+</div>
+
+<div class="course-card">
+
+<h3>
+Data Entry Operator
+</h3>
+
+<p>
+Typing + MS Office
+</p>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('Data Entry Job')">
+Apply Job
+</button>
+
+</div>
+
+<div class="course-card">
+
+<h3>
+Office Assistant
+</h3>
+
+<p>
+Basic Computer Required
+</p>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('Office Assistant Job')">
+Apply Job
+</button>
+
+</div>
+
+</section>
+
+<section id="scholarship" class="section">
+
+<div class="title">
+Scholarship Program
+</div>
+
+<div class="course-card">
+
+🏆 Merit Based Scholarship
+
+<br><br>
+
+🎓 Special Student Discount
+
+<br><br>
+
+📚 Fee Assistance Program
+
+<br><br>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('Scholarship Form')">
+Apply Scholarship
+</button>
+
+</div>
+
+</section>
+
+<section id="teacher" class="section">
+
+<div class="title">
+Teacher Registration
+</div>
+
+<div class="course-card">
+
+<h3>
+Join As Computer Teacher
+</h3>
+
+<br>
+
+<p>
+Apply For Online & Offline Teaching.
+</p>
+
+<br>
+
+<button
+class="enroll-btn"
+onclick="openEnrollForm('Teacher Registration')">
+Apply Now
+</button>
+
+</div>
+
+</section>
+
+<section id="attendance" class="section">
+
+<div class="title">
+Attendance System
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Student Name"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<select
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<option>Present</option>
+<option>Absent</option>
+
+</select>
+
+<button class="enroll-btn">
+Mark Attendance
+</button>
+
+</div>
+
+</section>
+
+<section id="feesmanager" class="section">
+
+<div class="title">
+Fees Manager
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Student Name"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<input
+type="number"
+placeholder="Fee Amount"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<button class="enroll-btn">
+Collect Fee
+</button>
+
+</div>
+
+</section>
+
+<section id="adminlogin" class="section">
+
+<div class="title">
+Admin Login
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Admin Username"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<input
+type="password"
+placeholder="Admin Password"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<button class="enroll-btn">
+Login
+</button>
+
+</div>
+
+</section>
+
+<section id="studentlogin" class="section">
+
+<div class="title">
+Student Login
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Student ID"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<input
+type="password"
+placeholder="Password"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<button class="enroll-btn">
+Login
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+let sidebar =
+document.getElementById("sidebar");
+
+if(sidebar){
+
+sidebar.innerHTML += `
+
+<a href="#" onclick="showPage('franchise')">
+🏢 Franchise
+</a>
+
+<a href="#" onclick="showPage('jobs')">
+💼 Jobs
+</a>
+
+<a href="#" onclick="showPage('scholarship')">
+🏆 Scholarship
+</a>
+
+<a href="#" onclick="showPage('teacher')">
+👨‍🏫 Teacher Registration
+</a>
+
+<a href="#" onclick="showPage('attendance')">
+📅 Attendance
+</a>
+
+<a href="#" onclick="showPage('feesmanager')">
+💰 Fees Manager
+</a>
+
+<a href="#" onclick="showPage('adminlogin')">
+⚙ Admin Login
+</a>
+
+<a href="#" onclick="showPage('studentlogin')">
+🎓 Student Login
+</a>
+
+`;
+
+}
+
+});
+
+</script>
+
+<!-- FINAL VERSION PART 7 END -->
+<section id="certificategenerator" class="section">
+
+<div class="title">
+Certificate Generator
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Student Name"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<input
+type="text"
+placeholder="Course Name"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<button class="enroll-btn">
+Generate Certificate
+</button>
+
+</div>
+
+</section>
+
+<section id="receiptgenerator" class="section">
+
+<div class="title">
+Fee Receipt Generator
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+placeholder="Student Name"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<input
+type="number"
+placeholder="Fee Amount"
+style="
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+<button class="enroll-btn">
+Print Receipt
+</button>
+
+</div>
+
+</section>
+
+<section id="idcard" class="section">
+
+<div class="title">
+Student ID Card
+</div>
+
+<div class="course-card">
+
+👨‍🎓
+
+<br><br>
+
+Student Name
+
+<br>
+
+Course Name
+
+<br>
+
+AINEX Computer Academy
+
+<br><br>
+
+<button class="enroll-btn">
+Print ID Card
+</button>
+
+</div>
+
+</section>
+
+<section id="livebatch" class="section">
+
+<div class="title">
+Live Batches
+</div>
+
+<div class="course-card">
+🟢 CCC Morning Batch
+<br><br>
+08:00 AM - 09:00 AM
+</div>
+
+<div class="course-card">
+🟢 DCA Afternoon Batch
+<br><br>
+01:00 PM - 02:00 PM
+</div>
+
+<div class="course-card">
+🟢 ADCA Evening Batch
+<br><br>
+05:00 PM - 06:00 PM
+</div>
+
+</section>
+
+<section id="coursefees" class="section">
+
+<div class="title">
+Course Fees
+</div>
+
+<div class="course-card">
+CCC - ₹700
+</div>
+
+<div class="course-card">
+Basic Computer - ₹999
+</div>
+
+<div class="course-card">
+DCA - ₹2499
+</div>
+
+<div class="course-card">
+ADCA - ₹4999
+</div>
+
+<div class="course-card">
+Tally Prime GST - ₹1499
+</div>
+
+<div class="course-card">
+Advanced Excel - ₹499
+</div>
+
+</section>
+
+<section id="placement" class="section">
+
+<div class="title">
+Placement Assistance
+</div>
+
+<div class="course-card">
+
+💼 Computer Operator
+
+<br><br>
+
+💼 Data Entry Operator
+
+<br><br>
+
+💼 Office Assistant
+
+<br><br>
+
+💼 Accountant
+
+<br><br>
+
+💼 Digital Marketing Executive
+
+</div>
+
+</section>
+
+<section id="updates" class="section">
+
+<div class="title">
+Latest Updates
+</div>
+
+<div class="course-card">
+📢 New CCC Batch Open
+</div>
+
+<div class="course-card">
+📢 DCA Admission Open
+</div>
+
+<div class="course-card">
+📢 ADCA Scholarship Available
+</div>
+
+<div class="course-card">
+📢 Tally Prime GST Training Started
+</div>
+
+<div class="course-card">
+📢 Advanced Excel Weekend Batch
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+let sidebar=
+document.getElementById("sidebar");
+
+if(sidebar){
+
+sidebar.innerHTML += `
+
+<a href="#" onclick="showPage('certificategenerator')">
+🎓 Certificate Generator
+</a>
+
+<a href="#" onclick="showPage('receiptgenerator')">
+🧾 Fee Receipt
+</a>
+
+<a href="#" onclick="showPage('idcard')">
+🆔 Student ID Card
+</a>
+
+<a href="#" onclick="showPage('livebatch')">
+🟢 Live Batches
+</a>
+
+<a href="#" onclick="showPage('coursefees')">
+💰 Course Fees
+</a>
+
+<a href="#" onclick="showPage('placement')">
+💼 Placement
+</a>
+
+<a href="#" onclick="showPage('updates')">
+📢 Updates
+</a>
+
+`;
+
+}
+
+});
+
+</script>
+
+<!-- FINAL VERSION PART 8 END -->
+ <section id="darkmode" class="section">
+
+<div class="title">
+Dark Mode
+</div>
+
+<div class="course-card">
+
+<h3>
+Website Theme
+</h3>
+
+<br>
+
+<button
+class="enroll-btn"
+onclick="toggleDarkMode()">
+
+🌙 Enable / Disable Dark Mode
+
+</button>
+
+</div>
+
+</section>
+
+<section id="notifications" class="section">
+
+<div class="title">
+Notifications
+</div>
+
+<div class="course-card">
+
+🔔 New Admission Alerts
+
+<br><br>
+
+🔔 New Batch Alerts
+
+<br><br>
+
+🔔 Exam Alerts
+
+<br><br>
+
+🔔 Result Alerts
+
+<br><br>
+
+🔔 Scholarship Alerts
+
+</div>
+
+</section>
+
+<section id="leaderboard" class="section">
+
+<div class="title">
+Student Leaderboard
+</div>
+
+<div class="course-card">
+
+🥇 Rahul Kumar - 98%
+
+</div>
+
+<div class="course-card">
+
+🥈 Pooja Singh - 95%
+
+</div>
+
+<div class="course-card">
+
+🥉 Amit Verma - 92%
+
+</div>
+
+<div class="course-card">
+
+🏅 Neha Singh - 90%
+
+</div>
+
+</section>
+
+<section id="events" class="section">
+
+<div class="title">
+Upcoming Events
+</div>
+
+<div class="course-card">
+
+📅 Computer Workshop
+
+<br><br>
+
+📅 Excel Master Class
+
+<br><br>
+
+📅 AI Tools Seminar
+
+<br><br>
+
+📅 Career Guidance Program
+
+</div>
+
+</section>
+
+<section id="news" class="section">
+
+<div class="title">
+Latest News
+</div>
+
+<div class="course-card">
+
+📰 CCC Registration Started
+
+</div>
+
+<div class="course-card">
+
+📰 DCA New Batch Open
+
+</div>
+
+<div class="course-card">
+
+📰 ADCA Admission Open
+
+</div>
+
+<div class="course-card">
+
+📰 Scholarship Program Active
+
+</div>
+
+</section>
+
+<section id="support" class="section">
+
+<div class="title">
+Help & Support
+</div>
+
+<div class="course-card">
+
+📞 Helpline
+
+<br><br>
+
+9236414171
+
+<br><br>
+
+📧 info@ainexacademy.com
+
+<br><br>
+
+💬 WhatsApp Support Available
+
+</div>
+
+</section>
+
+<section id="maps" class="section">
+
+<div class="title">
+Location Map
+</div>
+
+<div class="course-card">
+
+<iframe
+src="https://maps.google.com/maps?q=Basti&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%"
+height="250"
+style="
+border:0;
+border-radius:12px;
+">
+</iframe>
+
+</div>
+
+</section>
+
+<section id="branches" class="section">
+
+<div class="title">
+Our Branches
+</div>
+
+<div class="course-card">
+
+📍 Basti Branch
+
+<br><br>
+
+📍 Harraiya Branch
+
+<br><br>
+
+📍 Online Learning Center
+
+</div>
+
+</section>
+
+<section id="vision" class="section">
+
+<div class="title">
+Vision & Mission
+</div>
+
+<div class="course-card">
+
+<h3>
+Our Vision
+</h3>
+
+<br>
+
+<p>
+
+To make every student digitally skilled and career-ready through quality education and technology.
+
+</p>
+
+<br><hr><br>
+
+<h3>
+Our Mission
+</h3>
+
+<br>
+
+<p>
+
+Provide affordable, practical and professional computer education for all students.
+
+</p>
+
+</div>
+
+</section>
+
+<script>
+
+function toggleDarkMode(){
+
+document.body.classList.toggle("darkmode");
+
+}
+
+const darkStyle =
+document.createElement("style");
+
+darkStyle.innerHTML = `
+
+.darkmode{
+background:#111;
+color:#fff;
+}
+
+.darkmode .course-card{
+background:#222;
+color:#fff;
+}
+
+.darkmode .header{
+background:#222;
+}
+
+.darkmode .title{
+color:#fff;
+}
+
+.darkmode input,
+.darkmode textarea,
+.darkmode select{
+background:#333;
+color:#fff;
+border:1px solid #555;
+}
+
+`;
+
+document.head.appendChild(darkStyle);
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+let sidebar =
+document.getElementById("sidebar");
+
+if(sidebar){
+
+sidebar.innerHTML += `
+
+<a href="#" onclick="showPage('darkmode')">
+🌙 Dark Mode
+</a>
+
+<a href="#" onclick="showPage('notifications')">
+🔔 Notifications
+</a>
+
+<a href="#" onclick="showPage('leaderboard')">
+🏆 Leaderboard
+</a>
+
+<a href="#" onclick="showPage('events')">
+📅 Events
+</a>
+
+<a href="#" onclick="showPage('news')">
+📰 News
+</a>
+
+<a href="#" onclick="showPage('support')">
+🆘 Support
+</a>
+
+<a href="#" onclick="showPage('maps')">
+🗺 Location Map
+</a>
+
+<a href="#" onclick="showPage('branches')">
+🏢 Branches
+</a>
+
+<a href="#" onclick="showPage('vision')">
+🎯 Vision & Mission
+</a>
+
+`;
+
+}
+
+});
+
+</script>
+
+<!-- FINAL VERSION PART 9 END --><section id="partners" class="section">
+
+<div class="title">
+Our Partners
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">
+🏢
+<h3>AINEX Digital Services</h3>
+</div>
+
+<div class="course-card">
+🛡
+<h3>AINEX Insurance</h3>
+</div>
+
+<div class="course-card">
+🌐
+<h3>AINEX Web Solutions</h3>
+</div>
+
+<div class="course-card">
+🤖
+<h3>AINEX AI Solutions</h3>
+</div>
+
+<div class="course-card">
+🛒
+<h3>NEXO E Store</h3>
+</div>
+
+<div class="course-card">
+📚
+<h3>AINEX Learn</h3>
+</div>
+
+</div>
+
+</section>
+
+<section id="developer" class="section">
+
+<div class="title">
+Developed By
+</div>
+
+<div class="course-card">
+
+<h2>
+AINEX DIGITAL SERVICES
+</h2>
+
+<br>
+
+<h3>
+Aaditya Pandey
+</h3>
+
+<p>
+Founder & CEO
+</p>
+
+<br>
+
+<p>
+🌐 www.ainex.online
+</p>
+
+<br>
+
+<p>
+📞 9236414171
+</p>
+
+</div>
+
+</section>
+
+<section id="searchcourse" class="section">
+
+<div class="title">
+Search Course
+</div>
+
+<div class="course-card">
+
+<input
+type="text"
+id="courseSearch"
+placeholder="Search Course..."
+style="
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+">
+
+</div>
+
+</section>
+
+<section id="quickservices" class="section">
+
+<div class="title">
+Quick Services
+</div>
+
+<div class="course-grid">
+
+<div class="course-card">📝 Online Forms</div>
+<div class="course-card">🎓 Admission</div>
+<div class="course-card">📄 Certificates</div>
+<div class="course-card">💼 Jobs</div>
+<div class="course-card">🏢 Franchise</div>
+<div class="course-card">📢 Marketing</div>
+<div class="course-card">🤖 AI Services</div>
+<div class="course-card">🌐 Website Design</div>
+
+</div>
+
+</section>
+
+<script>
+
+const notices=[
+
+"🎓 Admission Open 2026",
+
+"📚 CCC New Batch Started",
+
+"💻 DCA Registration Open",
+
+"🏆 ADCA Admission Open",
+
+"📊 Advanced Excel Available",
+
+"⌨ Typing Course Open",
+
+"🌐 Web Designing Available",
+
+"🤖 AI Tools Training Available"
+
+];
+
+let noticeIndex=0;
+
+setInterval(function(){
+
+if(document.getElementById("notice")){
+
+noticeIndex++;
+
+if(noticeIndex>=notices.length){
+
+noticeIndex=0;
+
+}
+
+document.getElementById("notice")
+.innerHTML=
+notices[noticeIndex];
+
+}
+
+},3000);
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+let sidebar=
+document.getElementById("sidebar");
+
+if(sidebar){
+
+sidebar.innerHTML += `
+
+<a href="#" onclick="showPage('certificate')">
+🎓 Certificate Verify
+</a>
+
+<a href="#" onclick="showPage('downloads')">
+📥 Downloads
+</a>
+
+<a href="#" onclick="showPage('services')">
+🛠 Services
+</a>
+
+<a href="#" onclick="showPage('faq')">
+❓ FAQ
+</a>
+
+<a href="#" onclick="showPage('founder')">
+👨 Founder
+</a>
+
+<a href="#" onclick="showPage('reviews')">
+⭐ Reviews
+</a>
+
+<a href="#" onclick="showPage('partners')">
+🤝 Partners
+</a>
+
+<a href="#" onclick="showPage('developer')">
+💻 Developer
+</a>
+
+<a href="#" onclick="showPage('searchcourse')">
+🔎 Search Course
+</a>
+
+<a href="#" onclick="showPage('quickservices')">
+⚡ Quick Services
+</a>
+
+`;
+
+}
+
+});
+
+</script>
+
+<!-- PWA MANIFEST -->
+
+<link rel="manifest" href="manifest.json">
+
+<script>
+
+if('serviceWorker' in navigator){
+
+window.addEventListener(
+'load',
+function(){
+
+navigator.serviceWorker.register(
+'service-worker.js'
+);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
+
+<!-- FINAL VERSION COMPLETE -->
